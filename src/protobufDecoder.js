@@ -1,4 +1,4 @@
-import { decodeVarint } from "./varintUtils.js";
+const varintUtils = require("./varintUtils");
 
 class BufferReader {
   constructor(buffer) {
@@ -7,7 +7,7 @@ class BufferReader {
   }
 
   readVarInt() {
-    const result = decodeVarint(this.buffer, this.offset);
+    const result = varintUtils.decodeVarint(this.buffer, this.offset);
     this.offset += result.length;
 
     return result.value;
@@ -62,14 +62,14 @@ class BufferReader {
   }
 }
 
-export const TYPES = {
+const TYPES = {
   VARINT: 0,
   FIXED64: 1,
   LENDELIM: 2,
   FIXED32: 5
 };
 
-export function decodeProto(buffer) {
+function decodeProto(buffer) {
   const reader = new BufferReader(buffer);
   const parts = [];
 
@@ -116,7 +116,7 @@ export function decodeProto(buffer) {
   };
 }
 
-export function typeToString(type, subType) {
+function typeToString(type, subType) {
   switch (type) {
     case TYPES.VARINT:
       return "varint";
@@ -132,5 +132,6 @@ export function typeToString(type, subType) {
 }
 
 module.exports = {
-  decodeProto
+  decodeProto,
+  TYPES
 };

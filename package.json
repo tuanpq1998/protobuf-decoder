@@ -1,7 +1,6 @@
 {
   "name": "protobuf-decoder",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "dependencies": {
     "jsbi": "^3.1.1"

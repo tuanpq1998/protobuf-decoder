@@ -1,10 +1,10 @@
-import { decodeProto } from "./src/protobufDecoder.js";
+const decoder = require("./src/protobufDecoder.js");
 
 console.log(
   JSON.stringify(
-    decodeProto(
+    decoder.decodeProto(
       Buffer.from(
-        "00 1d 14 01 00 00 01 14 0c 04 a8 0e d9 7d a0 01 00 00 00 17 21 2b db 06 ba 88 01 00 00".replaceAll(
+        "0900127a0000000000110010d0862386be0720d690c0d0063152340dba88010000480350f90f5a060a04393936396229180028003000380042060a00120018004a060a001200180050005800600068008001009001009801019001009a0100a00100aa0100b00100ba0100".replaceAll(
           " ",
           ""
         ),

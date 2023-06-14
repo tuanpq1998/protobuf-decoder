@@ -1,4 +1,4 @@
-import { decodeVarint } from "./varintUtils";
+import { decodeVarint } from "./varintUtils.js";
 
 class BufferReader {
   constructor(buffer) {

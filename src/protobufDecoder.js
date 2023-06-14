@@ -130,3 +130,7 @@ export function typeToString(type, subType) {
       return "unknown";
   }
 }
+
+module.exports = {
+  decodeProto
+};
